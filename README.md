@@ -32,22 +32,22 @@ https://your-project-name.vercel.app/api/webhook
 ## Testing the Webhook
 
 ### Test with curl:
-\`\`\`bash
+```bash
 curl -X POST https://your-project-name.vercel.app/api/webhook \
   -H "Content-Type: application/json" \
   -d '{"event": "unlock", "user_id": "123", "data": "test"}'
-\`\`\`
+```
 
 ### Check if webhook is active:
-\`\`\`bash
+```bash
 curl https://your-project-name.vercel.app/api/webhook
-\`\`\`
+```
 
 ## Webhook Handler
 
 The webhook handler is located in `app/api/webhook/route.js`. Add your custom logic here:
 
-\`\`\`javascript
+```javascript
 // Place your webhook handling code after this line:
 console.log("Webhook received:", data)
 
@@ -56,11 +56,11 @@ if (data.event === "unlock") {
   // Handle unlock event
   console.log("Unlock event for user:", data.user_id)
 }
-\`\`\`
+```
 
 ## Project Structure
 
-\`\`\`
+```
 bright-data-unlock-webhook-demo/
 ├── app/
 │   ├── api/
@@ -69,7 +69,7 @@ bright-data-unlock-webhook-demo/
 │   └── page.js               # Home page
 ├── package.json
 └── README.md
-\`\`\`
+```
 
 ## Monitoring and Logs
 
