@@ -2,6 +2,8 @@
 
 A simple Next.js webhook listener for Bright Data unlock events, designed to run directly on Vercel.
 
+[![Watch the video](https://img.youtube.com/vi/zbz6TY3fsms/maxresdefault.jpg)](https://youtu.be/zbz6TY3fsms?si=dtPyDcBP_tJEJgCt "Watch on YouTube")
+
 ## Deploy to Vercel
 
 ### Option 1: Deploy Button (Fastest)
