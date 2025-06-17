@@ -1,30 +1,100 @@
-# Simple Next.js backend
+# Bright Data Unlock Webhook Demo
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+A simple Next.js webhook listener for Bright Data unlock events, designed to run directly on Vercel.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/anil-bds-projects/v0-simple-next-js-backend)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/sUjPmZQ7VzC)
+## Deploy to Vercel
 
-## Overview
+### Option 1: Deploy Button (Fastest)
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/bright-data-unlock-webhook-demo)
 
-## Deployment
+### Option 2: GitHub Integration
 
-Your project is live at:
+1. Go to [vercel.com](https://vercel.com)
+2. Click "New Project"
+3. Import your GitHub repository
+4. Click "Deploy"
 
-**[https://vercel.com/anil-bds-projects/v0-simple-next-js-backend](https://vercel.com/anil-bds-projects/v0-simple-next-js-backend)**
+### Option 3: Manual Git Import
 
-## Build your app
+1. Fork or clone this repository to your GitHub account
+2. Connect your GitHub account to Vercel
+3. Import the repository from your Vercel dashboard
+4. Deploy automatically
 
-Continue building your app on:
+## Your Webhook Endpoint
 
-**[https://v0.dev/chat/projects/sUjPmZQ7VzC](https://v0.dev/chat/projects/sUjPmZQ7VzC)**
+Once deployed, your webhook endpoint will be:
+\`\`\`
+https://your-project-name.vercel.app/api/webhook
+\`\`\`
 
-## How It Works
+## Testing the Webhook
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+### Test with curl:
+\`\`\`bash
+curl -X POST https://your-project-name.vercel.app/api/webhook \
+  -H "Content-Type: application/json" \
+  -d '{"event": "unlock", "user_id": "123", "data": "test"}'
+\`\`\`
+
+### Check if webhook is active:
+\`\`\`bash
+curl https://your-project-name.vercel.app/api/webhook
+\`\`\`
+
+## Webhook Handler
+
+The webhook handler is located in `app/api/webhook/route.js`. Add your custom logic here:
+
+\`\`\`javascript
+// Place your webhook handling code after this line:
+console.log("Webhook received:", data)
+
+// Example: Process unlock events
+if (data.event === "unlock") {
+  // Handle unlock event
+  console.log("Unlock event for user:", data.user_id)
+}
+\`\`\`
+
+## Project Structure
+
+\`\`\`
+bright-data-unlock-webhook-demo/
+├── app/
+│   ├── api/
+│   │   └── webhook/
+│   │       └── route.js      # Webhook endpoint
+│   └── page.js               # Home page
+├── package.json
+└── README.md
+\`\`\`
+
+## Monitoring and Logs
+
+View webhook logs in the Vercel dashboard:
+1. Go to your project dashboard on Vercel
+2. Click on "Functions" tab
+3. Select your webhook function to view logs
+4. Monitor incoming requests and responses
+
+## Troubleshooting
+
+### Common Issues:
+
+1. **Webhook not receiving data**
+   - Check the URL is correct: `/api/webhook`
+   - Ensure Content-Type is `application/json`
+
+2. **Deployment fails**
+   - Check Vercel build logs in the dashboard
+   - Ensure all dependencies are properly listed
+
+3. **Function timeout**
+   - Webhook processing should complete within 10 seconds (Hobby tier)
+   - For longer processing, consider async handling
+
+## Support
+
+For deployment issues, check the Vercel documentation or open an issue in this repository.
