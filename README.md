@@ -6,7 +6,7 @@ A simple Next.js webhook listener for Bright Data unlock events, designed to run
 
 ### Option 1: Deploy Button (Fastest)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/bright-data-unlock-webhook-demo)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/brightdata/bright-data-unlock-webhook-demo)
 
 ### Option 2: GitHub Integration
 
