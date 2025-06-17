@@ -25,9 +25,9 @@ A simple Next.js webhook listener for Bright Data unlock events, designed to run
 ## Your Webhook Endpoint
 
 Once deployed, your webhook endpoint will be:
-\`\`\`
+```
 https://your-project-name.vercel.app/api/webhook
-\`\`\`
+```
 
 ## Testing the Webhook
 
