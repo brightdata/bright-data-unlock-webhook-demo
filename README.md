@@ -50,12 +50,6 @@ The webhook handler is located in `app/api/webhook/route.js`. Add your custom lo
 ```javascript
 // Place your webhook handling code after this line:
 console.log("Webhook received:", data)
-
-// Example: Process unlock events
-if (data.event === "unlock") {
-  // Handle unlock event
-  console.log("Unlock event for user:", data.user_id)
-}
 ```
 
 ## Project Structure
