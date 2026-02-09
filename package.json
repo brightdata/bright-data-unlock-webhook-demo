@@ -1,5 +1,5 @@
 {
-  "name": "bright-data-unlock-webhook-demo",
+  "name": "@brightdata/bright-data-unlock-webhook-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
